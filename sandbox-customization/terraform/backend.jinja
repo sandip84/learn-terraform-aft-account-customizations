@@ -16,11 +16,11 @@ terraform {
 }
 {% else -%}
 terraform {
-    backend "remote" {
-        organization = "{{ terraform_org_name }}"
-        workspaces {
-        name = "{{ terraform_workspace_name }}"
-        }
+  backend "remote" {
+    organization = "{{ terraform_org_name }}"
+    workspaces {
+      name = "{{ terraform_workspace_name }}"
     }
+  }
 }
 {% endif %}

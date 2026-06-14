@@ -30,6 +30,27 @@ folder into a new folder. The new folder name should match the
 accounts you would like to baseline. Then, populate the target folder as per
 the instructions below.
 
+## Included sandbox example
+
+The `sandbox-customization` folder matches this account request setting:
+
+```hcl
+account_customizations_name = "sandbox-customization"
+```
+
+It demonstrates an opt-in sandbox baseline that:
+
+* Reads `custom_fields.group` from
+  `/aft/account-request/custom-fields/group` in the target account.
+* Blocks public S3 access at the account level.
+* Creates a private, encrypted, versioned artifact bucket.
+* Removes non-current object versions after 30 days to limit sandbox cost.
+
+Use the global customizations repository for controls and resources required in
+every AFT-managed account. Use this repository when an account or a group of
+accounts needs a selectable configuration such as `sandbox-customization`,
+`production-customization`, or `data-platform-customization`.
+
 ### Terraform
 
 AFT provides Jinja templates for Terraform backend and providers. These render
